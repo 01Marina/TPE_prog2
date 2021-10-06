@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-10-06T20:13:02.929Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36" etag="j_smtoL9Q0Q3N8CsGiPs" version="15.4.3" type="github">
+<mxfile host="app.diagrams.net" modified="2021-10-06T20:56:32.747Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36" etag="S8vd163VQk42_mHowGpv" version="15.4.3" type="github">
   <diagram id="vdzMlD7TGI_YU2oAaFCp" name="Page-1">
     <mxGraphModel dx="1557" dy="564" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="#FFFFFF" math="0" shadow="1">
       <root>
@@ -98,7 +98,7 @@
         <mxCell id="OocmJHn2FbIfZ78iyMsl-10" value="Participante GetParticipantesCriterio(Criterio criterio) &#xa;//no tendria q devolver lista el metodo de arriba?" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="OocmJHn2FbIfZ78iyMsl-3" vertex="1">
           <mxGeometry y="60" width="290" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="OocmJHn2FbIfZ78iyMsl-28" value="abstract boolean cumpleRequisitos(Participante part)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="OocmJHn2FbIfZ78iyMsl-3" vertex="1">
+        <mxCell id="OocmJHn2FbIfZ78iyMsl-28" value="abstract boolean cumpleRequisitos(Participante part) &#xa;//falta addparticipante" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="OocmJHn2FbIfZ78iyMsl-3" vertex="1">
           <mxGeometry y="90" width="290" height="30" as="geometry" />
         </mxCell>
         <mxCell id="IVkOuR1t5phAGJGx03Gj-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#000000;" edge="1" parent="1" source="OocmJHn2FbIfZ78iyMsl-12" target="ZMwlzYBA2cu9izTt_Fn9-23">
@@ -155,7 +155,7 @@
         <mxCell id="OocmJHn2FbIfZ78iyMsl-26" value="Requisito req" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="OocmJHn2FbIfZ78iyMsl-25" vertex="1">
           <mxGeometry y="30" width="290" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="OocmJHn2FbIfZ78iyMsl-27" value="Participante GetParticipanteCriterio(Criterio criterio)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="OocmJHn2FbIfZ78iyMsl-25" vertex="1">
+        <mxCell id="OocmJHn2FbIfZ78iyMsl-27" value="Participante GetParticipanteCriterio(Criterio criterio)&#xa;// esto no esta de mas?" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="OocmJHn2FbIfZ78iyMsl-25" vertex="1">
           <mxGeometry y="60" width="290" height="30" as="geometry" />
         </mxCell>
         <mxCell id="IVkOuR1t5phAGJGx03Gj-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;" edge="1" parent="1" source="OocmJHn2FbIfZ78iyMsl-29" target="OocmJHn2FbIfZ78iyMsl-26">
@@ -185,13 +185,13 @@
         <mxCell id="OocmJHn2FbIfZ78iyMsl-31" value="requisitoIdioma extends requisitos" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
           <mxGeometry x="40" y="830" width="240" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="OocmJHn2FbIfZ78iyMsl-34" value="participanteApto()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="OocmJHn2FbIfZ78iyMsl-31" vertex="1">
+        <mxCell id="OocmJHn2FbIfZ78iyMsl-34" value="participanteApto() //abstraction" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="OocmJHn2FbIfZ78iyMsl-31" vertex="1">
           <mxGeometry y="30" width="240" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="OocmJHn2FbIfZ78iyMsl-38" value="setRequisitos(ArrayList&lt;String&gt;)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="OocmJHn2FbIfZ78iyMsl-31" vertex="1">
+        <mxCell id="OocmJHn2FbIfZ78iyMsl-38" value="setRequisitos(ArrayList&lt;String&gt;) //abstraction" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="OocmJHn2FbIfZ78iyMsl-31" vertex="1">
           <mxGeometry y="60" width="240" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="OocmJHn2FbIfZ78iyMsl-40" value="public requisitoIdioma(ArrayList&lt;requisitos&gt;)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="OocmJHn2FbIfZ78iyMsl-31" vertex="1">
+        <mxCell id="OocmJHn2FbIfZ78iyMsl-40" value="public requisitoIdioma(ArrayList&lt;requisitos&gt;)&#xa;//no tendria q ser list de string?" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="OocmJHn2FbIfZ78iyMsl-31" vertex="1">
           <mxGeometry y="90" width="240" height="30" as="geometry" />
         </mxCell>
         <mxCell id="IVkOuR1t5phAGJGx03Gj-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="ZMwlzYBA2cu9izTt_Fn9-8" target="ZMwlzYBA2cu9izTt_Fn9-32">
@@ -212,7 +212,7 @@
         <mxCell id="IVkOuR1t5phAGJGx03Gj-21" value="" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
           <mxGeometry x="680" y="22.5" width="50" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="IVkOuR1t5phAGJGx03Gj-28" value="reality y produccion son lo mismo?&lt;br&gt;jurado es comportamiento de coach&lt;br&gt;" style="shape=card;whiteSpace=wrap;html=1;dashed=1;fillColor=default;" vertex="1" parent="1">
+        <mxCell id="IVkOuR1t5phAGJGx03Gj-28" value="reality y produccion son lo mismo?&lt;br&gt;jurado es comportamiento de coach&lt;br&gt;&lt;br&gt;y si en vez de juradomalo le ponemos los req a jurado y q pueda ser null?" style="shape=card;whiteSpace=wrap;html=1;dashed=1;fillColor=default;" vertex="1" parent="1">
           <mxGeometry x="930" y="60" width="220" height="170" as="geometry" />
         </mxCell>
         <mxCell id="IVkOuR1t5phAGJGx03Gj-29" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;dashed=1;fillColor=default;gradientColor=none;" vertex="1" parent="1">
@@ -223,6 +223,9 @@
         </mxCell>
         <mxCell id="IVkOuR1t5phAGJGx03Gj-32" value="subclase ejemplo" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;dashed=1;fillColor=default;gradientColor=none;" vertex="1" parent="1">
           <mxGeometry x="560" y="510" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IVkOuR1t5phAGJGx03Gj-37" value="subclase ejemplo" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;dashed=1;fillColor=default;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="160" y="750" width="120" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
