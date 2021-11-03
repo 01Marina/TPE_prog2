@@ -25,7 +25,7 @@ public class Reality {
 		ArrayList<Equipo> participantes = new ArrayList<>();//participantes de la batalla
 
 		for(Coach_Jurado coach: coaches){//busco integrantes aptos en los equipos para la batalla
-			Equipo participanteElegido = coach.participanteElejido(criterio, coach.getEquipo());//llamo a metodo de jurado q es comportamiento de coach y q devuelve un participante segun criterio 
+			Equipo participanteElegido = coach.participanteElejido(criterio);//llamo a metodo de jurado q es comportamiento de coach y q devuelve un participante segun criterio 
 			if(participanteElegido != null){
 				participantes.add(participanteElegido);//agrego participante a batalla
 			} 

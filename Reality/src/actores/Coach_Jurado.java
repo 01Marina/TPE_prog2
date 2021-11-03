@@ -27,7 +27,7 @@ public class Coach_Jurado{
 		return lista;
 	}
 	
-	public void addIntegrante(Participante participante) {
+	public void addIntegrante(Equipo participante) {
 		this.equipo.add(participante);
 	}
 
@@ -59,15 +59,24 @@ public class Coach_Jurado{
 
 	//COSAS DE JURADO-----------------------------------------
 	//elige 1 de los integrantes aptos a batallar
-		public Equipo participanteElejido(Criterio criterio, ArrayList<Equipo> arrayList){
+	
+	public Equipo participanteElejido(Criterio criterio){
+		ArrayList<Equipo> participantes = getParticipantesSegunCriterio(criterio);
+		if(participantes.size()>0) 
+			return participantes.get(0);
+		else return null;
+	}
+	
+		/*////ASÍ ERA ANTES////
+		 * public Equipo participanteElejido(Criterio criterio, ArrayList<Equipo> arrayList){
 			if(getParticipanteSegunCriterio(criterio, arrayList).size()>0) 
 				return getParticipanteSegunCriterio(criterio, arrayList).get(0);
 			else return null;
-		}
+		}*/
 		
-		public ArrayList<Equipo> getParticipanteSegunCriterio(Criterio criterio, ArrayList<Equipo> arrayList){
+		public ArrayList<Equipo> getParticipantesSegunCriterio(Criterio criterio){
 			ArrayList<Equipo> participantesABatallar = new ArrayList<>();
-			for(Equipo participante: arrayList){
+			for(Equipo participante: this.equipo){
 				if(criterio.cumpleCriterio(participante)){
 					participantesABatallar.add(participante);
 				}

@@ -2,7 +2,7 @@ package requisitos;
 
 import java.util.ArrayList;
 
-import actores.Participante;
+import actores.Equipo;
 
 public class RequisitoInstrumentos extends Requisito{
 	
@@ -25,7 +25,7 @@ public class RequisitoInstrumentos extends Requisito{
 	public RequisitoInstrumentos(String req) {
 		this(req, null);
 	}
-	public boolean cumple(Participante participante) {
+	public boolean cumple(Equipo participante) {
 		return participante.getInstrumentos().containsAll(requerimientos);
 	}
 }

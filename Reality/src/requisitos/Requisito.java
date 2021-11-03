@@ -1,13 +1,14 @@
 package requisitos;
 import java.util.ArrayList;
 
+import actores.Equipo;
 import actores.Participante;
 import canal.*;
 
 public abstract class Requisito {
 	private Requisito siguienteRequisito;
 	protected ArrayList<String> requerimientos;
-	public abstract boolean cumple(Participante participante);
+	public abstract boolean cumple(Equipo participante);
 
 	//constructor
 	public Requisito(Requisito req) {

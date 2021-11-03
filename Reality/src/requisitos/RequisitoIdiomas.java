@@ -1,7 +1,7 @@
 package requisitos;
 import java.util.ArrayList;
 
-import actores.Participante;
+import actores.Equipo;
 public class RequisitoIdiomas extends Requisito{
 	
 	//constructor
@@ -12,7 +12,7 @@ public class RequisitoIdiomas extends Requisito{
 		super(sigReq);
 		requerimientos = idiomas;
 	}
-	public boolean cumple(Participante participante) {
+	public boolean cumple(Equipo participante) {
 		return participante.getIdiomas().containsAll(requerimientos);
 	}
 }
