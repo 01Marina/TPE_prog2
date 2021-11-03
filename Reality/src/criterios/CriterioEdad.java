@@ -1,5 +1,5 @@
 package criterios;
-import actores.Participante;
+import actores.Equipo;
 import canal.*;
 
 public class CriterioEdad extends Criterio{
@@ -22,7 +22,7 @@ public class CriterioEdad extends Criterio{
 	}
 	
 	@Override
-	public boolean loCumple(Participante participante) {
+	public boolean loCumple(Equipo participante) {
 		return participante.getEdad() >= edadMinima;
 	}
 }

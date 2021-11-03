@@ -1,7 +1,7 @@
 package criterios;
 import java.util.ArrayList;
 
-import actores.Participante;
+import actores.Equipo;
 import canal.*;
 public class CriterioInstrumento extends Criterio{
 	private ArrayList<String> instrumentos;
@@ -19,7 +19,7 @@ public class CriterioInstrumento extends Criterio{
 	}
 
 	@Override
-	public boolean loCumple(Participante participante) {
+	public boolean loCumple(Equipo participante) {
 		return participante.getInstrumentos().containsAll(instrumentos);
 	}
 

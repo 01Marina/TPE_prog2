@@ -1,12 +1,11 @@
 package canal;
 import java.util.ArrayList;
-
-import actores.Participante;
+import actores.Equipo;
 public class Batalla {
-	private ArrayList<Participante> participantes;
+	private ArrayList<Equipo> participantes;
 	private Tema tema;
 
-	public Batalla(Tema tema, ArrayList<Participante> participantes){//agergar criterio?
+	public Batalla(Tema tema, ArrayList<Equipo> participantes){//agergar criterio?
 		this.tema = tema;
 		this.participantes = participantes;
 	}

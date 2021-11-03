@@ -1,4 +1,5 @@
 package criterios;
+import actores.Equipo;
 import actores.Participante;
 import canal.*;
 
@@ -20,7 +21,7 @@ public abstract class Criterio {
 	}
 	
 	//metodo template q usa loCumple
-	public boolean cumpleCriterio(Participante participante){
+	public boolean cumpleCriterio(Equipo participante){
 		if(loCumple(participante)){
 			if(getSiguienteCriterio()!=null){
 				getSiguienteCriterio().cumpleCriterio(participante);
@@ -30,7 +31,7 @@ public abstract class Criterio {
 		return false;
 	}
 	
-	public abstract boolean loCumple(Participante participante);
+	public abstract boolean loCumple(Equipo participante);
 	
 
 	

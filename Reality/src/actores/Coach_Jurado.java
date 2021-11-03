@@ -7,11 +7,6 @@ import criterios.Criterio;
 public class Coach_Jurado{
 	//exigente pide a cada personita o a cada elementoEquipo
 	protected ArrayList<Equipo> equipo;
-
-	
-	
-	
-	
 	
 	//PRIMERA PARTE------------------
 	public Coach_Jurado(){
@@ -64,15 +59,15 @@ public class Coach_Jurado{
 
 	//COSAS DE JURADO-----------------------------------------
 	//elige 1 de los integrantes aptos a batallar
-		public Participante participanteElejido(Criterio criterio, ArrayList<Participante> participantes){
-			if(getParticipanteSegunCriterio(criterio, participantes).size()>0) 
-				return getParticipanteSegunCriterio(criterio, participantes).get(0);
+		public Equipo participanteElejido(Criterio criterio, ArrayList<Equipo> arrayList){
+			if(getParticipanteSegunCriterio(criterio, arrayList).size()>0) 
+				return getParticipanteSegunCriterio(criterio, arrayList).get(0);
 			else return null;
 		}
 		
-		public ArrayList<Participante> getParticipanteSegunCriterio(Criterio criterio, ArrayList<Participante> participantes){
-			ArrayList<Participante> participantesABatallar = new ArrayList<Participante>();
-			for(Participante participante: participantes){
+		public ArrayList<Equipo> getParticipanteSegunCriterio(Criterio criterio, ArrayList<Equipo> arrayList){
+			ArrayList<Equipo> participantesABatallar = new ArrayList<>();
+			for(Equipo participante: arrayList){
 				if(criterio.cumpleCriterio(participante)){
 					participantesABatallar.add(participante);
 				}
@@ -80,7 +75,7 @@ public class Coach_Jurado{
 			return participantesABatallar;
 		}
 		
-		public boolean cumpleRequisitos(Participante participante) {
+		public boolean cumpleRequisitos(Equipo participante) {
 			return true;
 		}
 

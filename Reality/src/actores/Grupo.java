@@ -12,7 +12,7 @@ public class Grupo extends Equipo{
 	}
 	
 	@Override
-	public ArrayList<String> obtenerGenerosMusicales() {
+	public ArrayList<String> getGenerosMusicales() {
 		ArrayList<String> generos = new ArrayList<String>();
 		for(Equipo e: integrantes) {
 			for(String g: e.getGenerosMusicales()) {
@@ -27,7 +27,7 @@ public class Grupo extends Equipo{
 		boolean coincide = true;
 		int c = 0;
 		while(coincide && c<integrantes.size()) {
-			if(!integrantes.get(c).tengoGenero(g))
+			if(!integrantes.get(c).getGenerosMusicales().contains(g))
 				coincide = false;
 			c++;
 		}
@@ -38,16 +38,29 @@ public class Grupo extends Equipo{
 	
 	//retorna promedio de edades
 	@Override
-	public double obtenerEdad() {
+	public double getEdad() {
 		double edades = 0;
 		for(Equipo i: this.integrantes) {
-			edades += i.calcularEdad();
+			edades += i.getEdad();
 		}
 		return edades/integrantes.size();
 	}
 	
 	public void addIntegrantes(Equipo e) {
 		this.integrantes.add(e);
-		setEdad();
 	}
+	///////////FALTAN RESOLVER///////////////
+	/*
+	@Override
+	public ArrayList<String> getIdiomas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<String> getInstrumentos() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	*/
 }

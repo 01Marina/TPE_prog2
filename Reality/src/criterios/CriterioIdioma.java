@@ -1,7 +1,7 @@
 package criterios;
 import java.util.ArrayList;
 
-import actores.Participante;
+import actores.Equipo;
 import canal.*;
 public class CriterioIdioma extends Criterio{
 	private ArrayList<String> idiomas;
@@ -18,7 +18,7 @@ public class CriterioIdioma extends Criterio{
 		this.idiomas = idiomas;
 	}
 	@Override
-	public boolean loCumple(Participante participante) {
+	public boolean loCumple(Equipo participante) {
 		return participante.getIdiomas().containsAll(idiomas);
 	}
 
