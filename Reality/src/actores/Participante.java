@@ -1,28 +1,23 @@
 package actores;
 import java.util.ArrayList;
-public class Participante{
-	private String nombre;
+public class Participante extends Equipo{
 	private String apellido;
-	private int edad;
-	private ArrayList<String> generosMusicales;
-	private ArrayList<String> idiomas;
-	private ArrayList<String> instrumentos;
 	
-	//2 constructores para poder dejar null instrumentos
-	public Participante(String nombre, String apellido, int edad){
-		this(nombre, apellido, edad, new ArrayList<String>(), new ArrayList<String>(), new ArrayList<String>());
-	}
-
-	public Participante(String nombre, String apellido, int edad, ArrayList<String> generosMusicales, ArrayList<String> idiomas, ArrayList<String> instrumentos){
-		this.nombre = nombre;
+	public Participante(String nombre, String apellido, double edad, ArrayList<String> generosMusicales, ArrayList<String> idiomas, ArrayList<String> instrumentos){
+		super(nombre, edad, generosMusicales, idiomas,instrumentos);
 		this.apellido = apellido;
-		this.edad = edad;
-		this.generosMusicales = generosMusicales;
-		this.idiomas = idiomas;
-		this.instrumentos = instrumentos;
 	}
 
 
+	@Override
+	public double obtenerEdad() {
+		return this.getEdad();
+	}
+	@Override
+	public ArrayList<String> obtenerGenerosMusicales(){
+		return new ArrayList<String>(generosMusicales);
+	}
+	
 
 	//getters y setters
 	public void addGenerosMusicales(ArrayList<String> generos){
@@ -35,9 +30,7 @@ public class Participante{
 			this.idiomas.add(idioma);
 		}
 	}
-	public int getEdad(){
-		return this.edad;
-	}
+
 	public void addInstrumentos(ArrayList<String> instrumentos){
 		for(String instrumento: instrumentos){
 			generosMusicales.add(instrumento);

@@ -1,9 +1,9 @@
 package aptitudes;
 import java.util.ArrayList;
-import actores.Participante;
+import actores.*;
 
 public class AptitudIdioma extends Aptitud{
-	public ArrayList<String> getAptitud(Participante participante){
+	public ArrayList<String> getAptitud(Equipo participante){
 		return participante.getIdiomas();
 	}
 }

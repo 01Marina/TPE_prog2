@@ -5,18 +5,24 @@ import aptitudes.*;
 import criterios.Criterio;
 
 public class Coach_Jurado{
-	
-	protected ArrayList<Participante> equipo;
+	//exigente pide a cada personita o a cada elementoEquipo
+	protected ArrayList<Equipo> equipo;
 
+	
+	
+	
+	
+	
+	//PRIMERA PARTE------------------
 	public Coach_Jurado(){
-		equipo = new ArrayList<Participante>();
+		equipo = new ArrayList<Equipo>();
 	}
 	
 	//retorna lista de todos los instrumentos/idioma q el equipo domina
 	public ArrayList<String> getListaAptitudes(Aptitud aptitud){
 		//recorro equipo-si instrum on esta en nueva lista add
 		ArrayList<String> lista = new ArrayList<String>();
-		for(Participante participante: equipo){
+		for(Equipo participante: equipo){
 			for(String apt: aptitud.getAptitud(participante)){
 				if(!lista.contains(apt)){
 					lista.add(apt);
@@ -39,16 +45,16 @@ public class Coach_Jurado{
 		ordenarLista(lista);
 		return lista;
 	}
-	public ArrayList<Participante> getEquipo(){
+	public ArrayList<Equipo> getEquipo(){
 
-		return new ArrayList<Participante>(equipo);
+		return new ArrayList<Equipo>(equipo);
 	}
 
 
 	public double promedioEdadEqupo(){
 		int sumaEdades = 0;
 		double promedio;
-		for(Participante participante: equipo){
+		for(Equipo participante: equipo){
 			sumaEdades += participante.getEdad();
 		}
 		promedio = sumaEdades/equipo.size();
