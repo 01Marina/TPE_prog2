@@ -2,6 +2,8 @@ package actores;
 
 import java.util.ArrayList;
 
+import criterios.Criterio;
+
 public abstract class Equipo {
 	protected String nombre;
 	
@@ -19,4 +21,7 @@ public abstract class Equipo {
 	public abstract ArrayList<String> getIdiomas();
 	public abstract ArrayList<String> getInstrumentos();
 	
+	public abstract ArrayList<Equipo> getEquipo();
+
+	public abstract ArrayList<Equipo> getParticipantes(Criterio criterio);
 }

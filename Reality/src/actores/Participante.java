@@ -1,5 +1,7 @@
 package actores;
 import java.util.ArrayList;
+
+import criterios.Criterio;
 public class Participante extends Equipo{
 	private String apellido;
 	private ArrayList<String> generosMusicales, idiomas, instrumentos;
@@ -45,5 +47,18 @@ public class Participante extends Equipo{
 	}
 	public ArrayList<String> getInstrumentos(){
 		return new ArrayList<String>(instrumentos);
+	}
+	
+	public ArrayList<Equipo> getParticipantes(Criterio criterio){
+		if(criterio.cumple(this)) {
+			ArrayList<Equipo> e = new ArrayList<>();
+			e.add(this);
+			return e;
+		}
+		return new ArrayList<>();
+	}
+	@Override
+	public ArrayList<Equipo> getEquipo() {
+		return new ArrayList<>();
 	}
 }

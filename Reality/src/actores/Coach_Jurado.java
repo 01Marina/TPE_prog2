@@ -6,16 +6,22 @@ import criterios.Criterio;
 
 public class Coach_Jurado{
 	//exigente pide a cada personita o a cada elementoEquipo
+	//SE REPITE EN CLASE GRUPO
 	protected ArrayList<Equipo> equipo;
 	
 	//PRIMERA PARTE------------------
 	public Coach_Jurado(){
 		equipo = new ArrayList<Equipo>();
 	}
+	//SE REPITE EN CLASE GRUPO
+	public void addIntegrante(Equipo participante) {
+		this.equipo.add(participante);
+	}
 	
+	//SE REPITE EN CLASE GRUPO
 	//retorna lista de todos los instrumentos/idioma q el equipo domina
-	public ArrayList<String> getListaAptitudes(Aptitud aptitud){
-		//recorro equipo-si instrum on esta en nueva lista add
+	public ArrayList<String> getAptitudes(Aptitud aptitud){
+		//recorro equipo-si instrum no está en la lista lo add
 		ArrayList<String> lista = new ArrayList<String>();
 		for(Equipo participante: equipo){
 			for(String apt: aptitud.getAptitud(participante)){
@@ -26,27 +32,19 @@ public class Coach_Jurado{
 		}
 		return lista;
 	}
-	
-	public void addIntegrante(Equipo participante) {
-		this.equipo.add(participante);
-	}
-
-	public void ordenarLista(ArrayList<String> lista){
+	//PREGUNTAR
+	//hacerlo dinámico o hacer que solo los generos sean los ordenados?
+	public ArrayList<String> getAptitudOrdenada(Aptitud aptitud){
+		ArrayList<String> lista = getAptitudes(aptitud);
 		Collections.sort(lista);
-	}
-
-	public ArrayList<String> getAptitudGeneros(){
-		ArrayList<String> lista = getListaAptitudes(new AptitudGeneros());
-		ordenarLista(lista);
 		return lista;
 	}
+	//SE REPITE EN CLASE GRUPO
 	public ArrayList<Equipo> getEquipo(){
-
 		return new ArrayList<Equipo>(equipo);
 	}
 
-
-	public double promedioEdadEqupo(){
+	public double promedioEdad(){
 		int sumaEdades = 0;
 		double promedio;
 		for(Equipo participante: equipo){
@@ -59,33 +57,22 @@ public class Coach_Jurado{
 
 	//COSAS DE JURADO-----------------------------------------
 	//elige 1 de los integrantes aptos a batallar
-	
+	//PREGUNTAR
+	//esta funsión deberia recibir cuantos participantes son requeridos para el tema
 	public Equipo participanteElejido(Criterio criterio){
-		ArrayList<Equipo> participantes = getParticipantesSegunCriterio(criterio);
+		ArrayList<Equipo> participantes = getParticipantes2(criterio);
 		if(participantes.size()>0) 
 			return participantes.get(0);
 		else return null;
 	}
-	
-		/*////ASÍ ERA ANTES////
-		 * public Equipo participanteElejido(Criterio criterio, ArrayList<Equipo> arrayList){
-			if(getParticipanteSegunCriterio(criterio, arrayList).size()>0) 
-				return getParticipanteSegunCriterio(criterio, arrayList).get(0);
-			else return null;
-		}*/
 		
-		public ArrayList<Equipo> getParticipantesSegunCriterio(Criterio criterio){
-			ArrayList<Equipo> participantesABatallar = new ArrayList<>();
-			for(Equipo participante: this.equipo){
-				if(criterio.cumpleCriterio(participante)){
-					participantesABatallar.add(participante);
-				}
-			}
-			return participantesABatallar;
+	public ArrayList<Equipo> getParticipantes2(Criterio criterio){
+		ArrayList<Equipo> participantesABatallar = new ArrayList<>();
+		for(Equipo participante: this.equipo){
+			ArrayList<Equipo> ee = participante.getParticipantes(criterio);
+			participantesABatallar.addAll(ee);
 		}
+		return participantesABatallar;
+	}
 		
-		public boolean cumpleRequisitos(Equipo participante) {
-			return true;
-		}
-
 }

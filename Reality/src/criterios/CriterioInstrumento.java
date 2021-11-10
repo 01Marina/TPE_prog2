@@ -1,26 +1,15 @@
 package criterios;
-import java.util.ArrayList;
 
 import actores.Equipo;
-import canal.*;
 public class CriterioInstrumento extends Criterio{
-	private ArrayList<String> instrumentos;
-	//add
-	public void addInstrumento(String instrumento) {
-		this.instrumentos.add(instrumento);
-	}
+	private String instrumento;
 	//constructores
-	public CriterioInstrumento(ArrayList<String> instrumentos){
-		this(instrumentos, null);
+	public CriterioInstrumento(String instrumento){
+		this.instrumento = instrumento;
 	}
-	public CriterioInstrumento(ArrayList<String> instrumentos, Criterio sigCriterio){
-		super(sigCriterio);
-		this.instrumentos = instrumentos;
-	}
-
 	@Override
-	public boolean loCumple(Equipo participante) {
-		return participante.getInstrumentos().containsAll(instrumentos);
+	public boolean cumple(Equipo p) {
+		return p.getInstrumentos().contains(this.instrumento);
 	}
 
 }

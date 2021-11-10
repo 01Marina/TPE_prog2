@@ -1,36 +1,25 @@
 package actores;
-import requisitos.*;
-import canal.*;
+
+import criterios.Criterio;
 public class Coach_JuradoEstricto extends Coach_Jurado{
-	private Requisito requisitos;
+	private Criterio requisitos;
 	
-	public Coach_JuradoEstricto(Requisito requisitos) {
+	public Coach_JuradoEstricto(Criterio requisitos) {
 		this.requisitos = requisitos;
 	}
-	
-	
-	//inutil creo
-	/*public boolean cumpleRequisito(Participante participante) {
-		return requisitos.cumple(participante);
-	}*/
-	
 	
 	@Override
 	public void addIntegrante(Equipo participante) {
 		if(requisitos.cumple(participante))
 			super.addIntegrante(participante);
 	}
-
 	
-	public Requisito getRequisitos() {
+	public Criterio getRequisitos() {
 		return requisitos;
 	}
 
-	public void setRequisitos(Requisito requisitos) {
+	public void setRequisitos(Criterio requisitos) {
 		this.requisitos = requisitos;
 	}
-	
-	
-	
 	
 }
