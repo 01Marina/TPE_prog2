@@ -1,6 +1,8 @@
 package actores;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
+
 import aptitudes.*;
 import criterios.Criterio;
 
@@ -55,10 +57,10 @@ public class Coach_Jurado{
 	}
 
 
-	//COSAS DE JURADO-----------------------------------------
+	//COSAS DE JURADO------------------------------------------
 	//elige 1 de los integrantes aptos a batallar
 	//PREGUNTAR
-	//esta funsión deberia recibir cuantos participantes son requeridos para el tema
+	//esta función deberia recibir cuantos participantes son requeridos para el tema
 	public Equipo participanteElejido(Criterio criterio){
 		ArrayList<Equipo> participantes = getParticipantes2(criterio);
 		if(participantes.size()>0) 
@@ -74,5 +76,16 @@ public class Coach_Jurado{
 		}
 		return participantesABatallar;
 	}
+	
+	//ESTO DEBERIA USARSE PARA METER PARTICIPANTES (Q MAS CONVENGAN) EN LA BATALLA?
+	public ArrayList<Equipo> rankingEquipo(Comparator<Equipo> c){
+		ArrayList<Equipo> ranking = new ArrayList<Equipo>(equipo);
+		Collections.sort(ranking, c);
+		return ranking;
+	}
+	
+	
+	
+	
 		
 }

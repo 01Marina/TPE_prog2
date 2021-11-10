@@ -17,7 +17,7 @@ public abstract class Equipo {
 	
 	public abstract double getEdad();
 	public abstract ArrayList<String> getGenerosMusicales();
-///////////FALTAN RESOLVER EN CLASE GRUPO///////////////
+///////////FALTAN RESOLVER EN CLASE GRUPO////////////////
 	public abstract ArrayList<String> getIdiomas();
 	public abstract ArrayList<String> getInstrumentos();
 	
