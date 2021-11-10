@@ -4,8 +4,6 @@ import actores.Equipo;
 import canal.Tema;
 
 public class CriterioTema extends Criterio{
-	//PREGUNTAR
-	//CLASE VS INSTANCIA
 	private Tema t;
 	
 	public CriterioTema(Tema t) {
@@ -15,6 +13,6 @@ public class CriterioTema extends Criterio{
 
 	@Override
 	public boolean cumple(Equipo p) {
-		return p.getIdiomas().contains(t.getIdioma());
+		return this.t.aceptaInterprete(p);
 	}
 }

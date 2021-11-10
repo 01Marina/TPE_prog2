@@ -11,8 +11,8 @@ public class Coach_JuradoEstricto extends Coach_Jurado{
 	@Override
 	public void addIntegrante(Equipo participante) {
 		if(requisitos.cumple(participante))
-			super.addIntegrante(participante); 
-			//ESTA BIEN USAR SUPER?
+			//super.addIntegrante(participante);
+			this.equipo.add(participante);
 	}
 	
 	public Criterio getRequisitos() {

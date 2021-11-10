@@ -1,8 +1,6 @@
 package criterios;
-import java.util.ArrayList;
 
 import actores.Equipo;
-import canal.*;
 public class CriterioIdioma extends Criterio{
 	private String idioma;
 	//constructores

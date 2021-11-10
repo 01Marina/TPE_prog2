@@ -1,10 +1,13 @@
 package canal;
 import java.util.ArrayList;
+
+import actores.Equipo;
+import criterios.CriterioGenero;
+
 public class Tema {
-	private String titulo;
-	private String idioma;
+	private String titulo, idioma;
 	private ArrayList<String> generosMusicales;
-	private ArrayList<String> instrumentosNecesarios; //null
+	protected ArrayList<String> instrumentosNecesarios; //null
 
 	public Tema(String titulo,String idioma){
 		this.titulo = titulo;
@@ -36,6 +39,30 @@ public class Tema {
 	public ArrayList<String> getInstrumentosNecesarios() {
 		return new ArrayList<>(instrumentosNecesarios);
 	}
+
+	public boolean aceptaInterprete(Equipo p) {
+		return p.getIdiomas().contains(this.idioma) && this.coindideAlmenosUnGenero(p);
+	}
+
+	private boolean coindideAlmenosUnGenero(Equipo p) {
+		int contador = 0;
+		for(String i: this.instrumentosNecesarios) {
+			ArrayList<Equipo> e = p.getParticipantes(new CriterioGenero(i));
+			contador += e.size();
+			if(contador > 1) {
+				return true;
+			}
+		}
+		return false;
+	}
 	
-	
+	/*private boolean coindideAlmenosUnGenero2(Equipo p) {
+		boolean coicide = false;
+		int i = 0;
+		while(!coicide && i<this.generosMusicales.size()) {
+			String genero = this.generosMusicales.get(i);
+			coicide = p.getGenerosMusicales().contains(genero);
+		}
+		return coicide;
+	}*/
 }

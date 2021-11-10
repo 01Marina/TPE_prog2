@@ -78,25 +78,19 @@ public class Grupo extends Equipo{
 		}
 		return instrumentos;
 	}
-
-	@Override
-	public ArrayList<Equipo> getEquipo() {
-		return this.integrantes;
-	}
 	
 	public ArrayList<Equipo> getParticipantes(Criterio criterio){
 		ArrayList<Equipo> participantesABatallar = new ArrayList<>();
-		for(Equipo participante: this.integrantes){
-			if(criterio.cumple(participante)){
-				participantesABatallar.add(participante);
+			if(criterio.cumple(this)){
+				participantesABatallar.add(this);
 			}else {
 				//ACÁ PUEDE LLEGAR A RECORRER UN ARRAY VACIO EN CASO DE QUE SEA UN PARTICIPANTE SIMPLE
-				for(Equipo e: participante.getEquipo()) {
+				for(Equipo e: this.integrantes) {
 					ArrayList<Equipo> ee = e.getParticipantes(criterio);
 					participantesABatallar.addAll(ee);
 				}
 			}
-		}
+		
 		return participantesABatallar;
 	}
 }

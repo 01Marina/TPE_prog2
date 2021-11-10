@@ -1,6 +1,5 @@
 package criterios;
 import actores.Equipo;
-import canal.*;
 
 public class CriterioEdad extends Criterio{
 	private int edadMinima;
