@@ -34,12 +34,12 @@ public class TemaFinal extends Tema{
 	}
 	
 	private boolean tocaAlmenosUnInstrumento(Equipo p) {
-		boolean coicide = false;
-		int i = 0;
-		while(!coicide && i<this.instrumentosNecesarios.size()) {
-			String instrumento = this.instrumentosNecesarios.get(i);
-			coicide = p.getInstrumentos().contains(instrumento);
+		for(String i: this.instrumentosNecesarios) {
+			ArrayList<Equipo> e = p.getParticipantes(new CriterioInstrumento(i));
+			if(e.size() > 0) {
+				return true;
+			}
 		}
-		return coicide;
+		return false;
 	}
 }

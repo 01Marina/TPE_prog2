@@ -7,15 +7,15 @@ import criterios.Criterio;
 
 public class Coach_Jurado{
 	protected ArrayList<Equipo> equipo;
-	
+
 	public Coach_Jurado(){
 		equipo = new ArrayList<Equipo>();
 	}
-	
-	public void addIntegrante(Equipo participante) {
+
+	public void addEquipo(Equipo participante) {
 		this.equipo.add(participante);
 	}
-	
+
 	public ArrayList<String> getIdiomas(){
 		ArrayList<String> lista = new ArrayList<String>();
 		for(Equipo participante: equipo){
@@ -27,7 +27,7 @@ public class Coach_Jurado{
 		}
 		return lista;
 	}
-	
+
 	public ArrayList<String> getInstrumentos(){
 		ArrayList<String> lista = new ArrayList<String>();
 		for(Equipo participante: equipo){
@@ -39,7 +39,7 @@ public class Coach_Jurado{
 		}
 		return lista;
 	}
-	
+
 	public ArrayList<String> getGeneros(){
 		ArrayList<String> lista = new ArrayList<String>();
 		for(Equipo participante: equipo){
@@ -79,26 +79,25 @@ public class Coach_Jurado{
 			return participantes.get(0);
 		else return null;
 	}
-		
+
 	public ArrayList<Equipo> getParticipantes2(Criterio criterio){
 		ArrayList<Equipo> participantesABatallar = new ArrayList<>();
 		for(Equipo participante: this.equipo){
 			ArrayList<Equipo> ee = participante.getParticipantes(criterio);
 			participantesABatallar.addAll(ee);
 		}
-		
+
 		return participantesABatallar;
 	}
-	
-	//ESTO DEBERIA USARSE PARA METER PARTICIPANTES (Q MAS CONVENGAN) EN LA BATALLA?
+
 	public ArrayList<Equipo> rankingEquipo(Comparator<Equipo> c){
 		ArrayList<Equipo> ranking = new ArrayList<Equipo>(equipo);
 		Collections.sort(ranking, c);
 		return ranking;
 	}
-	
-	
-	
-	
-		
+
+
+
+
+
 }

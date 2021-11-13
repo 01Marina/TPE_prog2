@@ -4,39 +4,34 @@ import criterios.Criterio;
 
 public class Participante extends Equipo{
 	private String apellido;
+	private double edad;
 	private ArrayList<String> generosMusicales, idiomas, instrumentos;
 	
 
 
-	public Participante(String nombre, String apellido, ArrayList<String> generosMusicales, ArrayList<String> idiomas,
-			ArrayList<String> instrumentos) {
+	public Participante(String nombre, String apellido, double edad) {
 		super(nombre);
 		this.apellido = apellido;
-		this.generosMusicales = new ArrayList<String>(generosMusicales);
-		this.idiomas = new ArrayList<String>(idiomas);
-		this.instrumentos = new ArrayList<String>(instrumentos);
+		this.edad = edad;
+		this.generosMusicales = new ArrayList<String>();
+		this.idiomas = new ArrayList<String>();
+		this.instrumentos = new ArrayList<String>();
 	}
 	@Override
 	public double getEdad() {
-		return this.getEdad();
+		return this.edad;
 	}
 
 	//getters y setters
-	public void addGenerosMusicales(ArrayList<String> generos){
-		for(String genero: generos){
+	public void addGeneroMusical(String genero){
 			generosMusicales.add(genero);
-		}
 	}
-	public void addIdiomas(ArrayList<String> idiomas){
-		for(String idioma: idiomas){
+	public void addIdioma(String idioma){
 			this.idiomas.add(idioma);
-		}
 	}
 
-	public void addInstrumentos(ArrayList<String> instrumentos){
-		for(String instrumento: instrumentos){
-			generosMusicales.add(instrumento);
-		}
+	public void addInstrumento(String instrumento){
+			instrumentos.add(instrumento);
 	}
 	public ArrayList<String> getIdiomas(){
 		return new ArrayList<String>(idiomas);
@@ -56,5 +51,14 @@ public class Participante extends Equipo{
 			return e;
 		}
 		return new ArrayList<>();
+	}
+	
+	@Override
+	public String toString() {
+		return "Participante " + this.nombre + ": " + System.lineSeparator() +
+				"Edad: " + (int) this.getEdad() + System.lineSeparator() +
+				"Generos Musicales: " + this.getGenerosMusicales() + System.lineSeparator() +
+				"Idiomas: " + this.getIdiomas() + System.lineSeparator() +
+				"Instrumentos: " + this.getInstrumentos();
 	}
 }

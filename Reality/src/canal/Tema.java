@@ -56,13 +56,5 @@ public class Tema {
 		return false;
 	}
 	
-	/*private boolean coindideAlmenosUnGenero2(Equipo p) {
-		boolean coicide = false;
-		int i = 0;
-		while(!coicide && i<this.generosMusicales.size()) {
-			String genero = this.generosMusicales.get(i);
-			coicide = p.getGenerosMusicales().contains(genero);
-		}
-		return coicide;
-	}*/
+	
 }

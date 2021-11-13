@@ -13,7 +13,7 @@ public class Grupo extends Equipo{
 		integrantes = new ArrayList<Equipo>();
 	}
 	
-	public void addIntegrantes(Equipo e) {
+	public void addIntegrante(Equipo e) {
 		this.integrantes.add(e);
 	}
 
@@ -24,7 +24,8 @@ public class Grupo extends Equipo{
 		for(Equipo e: integrantes) {
 			for(String g: e.getGenerosMusicales()) {
 				if(this.coincideConTodo(g))
-					generos.add(g);
+					if(!generos.contains(g))
+						generos.add(g);
 			}
 		}
 		return generos;	
@@ -92,5 +93,19 @@ public class Grupo extends Equipo{
 			}
 		
 		return participantesABatallar;
+	}
+	
+	@Override 
+	public String toString() {
+		String str = "Grupo " + this.nombre + ": " + System.lineSeparator() +
+				"Edad: " + (int) this.getEdad() + System.lineSeparator() +
+				"Generos Musicales: " + this.getGenerosMusicales() + System.lineSeparator() +
+				"Idiomas: " + this.getIdiomas() + System.lineSeparator() +
+				"Instrumentos: " + this.getInstrumentos() + System.lineSeparator() + System.lineSeparator();
+		for(Equipo e: this.integrantes)
+			str += e.toString() + System.lineSeparator();
+			
+		return str; 
+				
 	}
 }
