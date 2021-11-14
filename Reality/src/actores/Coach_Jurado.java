@@ -6,6 +6,7 @@ import java.util.Comparator;
 import criterios.Criterio;
 
 public class Coach_Jurado{
+	
 	protected ArrayList<Equipo> equipo;
 
 	public Coach_Jurado(){
@@ -52,7 +53,7 @@ public class Coach_Jurado{
 		return lista;
 	}
 
-	public ArrayList<String> getAptitudOrdenada(){
+	public ArrayList<String> getGenerosOrdenada(){
 		ArrayList<String> lista = this.getGeneros();
 		Collections.sort(lista);
 		return lista;
@@ -74,17 +75,17 @@ public class Coach_Jurado{
 	//PREGUNTAR
 	//esta función deberia recibir cuantos participantes son requeridos para el tema
 	public Equipo participanteElejido(Criterio criterio){
-		ArrayList<Equipo> participantes = getParticipantes2(criterio);
+		ArrayList<Equipo> participantes = getParticipantesAptos(criterio);
 		if(participantes.size()>0) 
 			return participantes.get(0);
 		else return null;
-	}
+	}//SE BORRA??
 
-	public ArrayList<Equipo> getParticipantes2(Criterio criterio){
+	public ArrayList<Equipo> getParticipantesAptos(Criterio criterio){
 		ArrayList<Equipo> participantesABatallar = new ArrayList<>();
 		for(Equipo participante: this.equipo){
-			ArrayList<Equipo> ee = participante.getParticipantes(criterio);
-			participantesABatallar.addAll(ee);
+			ArrayList<Equipo> elegidos = participante.getParticipantes(criterio);
+			participantesABatallar.addAll(elegidos);
 		}
 
 		return participantesABatallar;

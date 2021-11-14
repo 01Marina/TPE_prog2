@@ -3,6 +3,7 @@ package criterios;
 import actores.Equipo;
 
 public class CriterioAnd extends Criterio{
+	
 	private Criterio c1, c2;
 	
 	public CriterioAnd(Criterio c1, Criterio c2) {

@@ -6,7 +6,7 @@ import actores.Coach_Jurado;
 import actores.Equipo;
 import criterios.Criterio;
 public class Reality {
-
+	
 	private ArrayList<Equipo> participantes;
 	private ArrayList<Coach_Jurado> coaches;
 	private ArrayList<Tema> temas;
@@ -22,6 +22,8 @@ public class Reality {
 	public int batallar(Equipo participante, Equipo contrincante) {
 		return requisitoBatalla.compare(participante, contrincante);
 	}
+	
+	//ADD, GET & SET
 	
 	public void addParticipante(Equipo participante){
 		this.participantes.add(participante);

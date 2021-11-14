@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import criterios.Criterio;
 
 public abstract class Equipo {
+	
 	protected String nombre;
 	
 	public Equipo(String nombre) {
@@ -16,9 +17,14 @@ public abstract class Equipo {
 	}
 	
 	public abstract double getEdad();
+	
 	public abstract ArrayList<String> getGenerosMusicales();
+	
 	public abstract ArrayList<String> getIdiomas();
+	
 	public abstract ArrayList<String> getInstrumentos();
+	
+	public abstract ArrayList<Equipo> getEquipos(Criterio criterio);
 	public abstract ArrayList<Equipo> getParticipantes(Criterio criterio);
 	
 }

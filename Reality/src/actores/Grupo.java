@@ -17,18 +17,19 @@ public class Grupo extends Equipo{
 		this.integrantes.add(e);
 	}
 
-	//HACER PRUEBAS CON UN MAIN
+
+	//para c/integrante, recorro sus generos. si uno en particular coincide con todos y no estaba en lista de retorno, lo agrego a esta
 	@Override
 	public ArrayList<String> getGenerosMusicales() {
 		ArrayList<String> generos = new ArrayList<String>();
-		for(Equipo e: integrantes) {
-			for(String g: e.getGenerosMusicales()) {
-				if(this.coincideConTodo(g))
-					if(!generos.contains(g))
-						generos.add(g);
+		if(integrantes.size() > 0) {
+			for(String g: integrantes.get(0).getGenerosMusicales()) {
+				if(this.coincideConTodo(g) && !generos.contains(g)) {
+						generos.add(g);						
+				}
 			}
 		}
-		return generos;	
+		return generos;
 	}
 	
 	public boolean coincideConTodo(String g) {
@@ -80,18 +81,27 @@ public class Grupo extends Equipo{
 		return instrumentos;
 	}
 	
-	public ArrayList<Equipo> getParticipantes(Criterio criterio){
+	@Override
+	public ArrayList<Equipo> getEquipos(Criterio criterio){
 		ArrayList<Equipo> participantesABatallar = new ArrayList<>();
 			if(criterio.cumple(this)){
 				participantesABatallar.add(this);
 			}else {
-				//ACÁ PUEDE LLEGAR A RECORRER UN ARRAY VACIO EN CASO DE QUE SEA UN PARTICIPANTE SIMPLE
 				for(Equipo e: this.integrantes) {
-					ArrayList<Equipo> ee = e.getParticipantes(criterio);
+					ArrayList<Equipo> ee = e.getEquipos(criterio);
 					participantesABatallar.addAll(ee);
 				}
 			}
-		
+		return participantesABatallar;
+	}
+	
+	@Override
+	public ArrayList<Equipo> getParticipantes(Criterio criterio){
+		ArrayList<Equipo> participantesABatallar = new ArrayList<>();
+		for(Equipo e: this.integrantes) {
+			ArrayList<Equipo> ee = e.getParticipantes(criterio);
+			participantesABatallar.addAll(ee);
+		}
 		return participantesABatallar;
 	}
 	
@@ -104,8 +114,6 @@ public class Grupo extends Equipo{
 				"Instrumentos: " + this.getInstrumentos() + System.lineSeparator() + System.lineSeparator();
 		for(Equipo e: this.integrantes)
 			str += e.toString() + System.lineSeparator();
-			
-		return str; 
-				
+		return str;
 	}
 }
