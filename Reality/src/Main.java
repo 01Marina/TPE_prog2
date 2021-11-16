@@ -173,6 +173,9 @@ public class Main {
 	
 	//los metodos overrided se ven reflejados cuando uso polimorfismo
 		
+		
+		
+		
 ////////COMPORTAMIENTO REALITY////////
 		
 	//BUSCO PARTICIPANTES PARA BATALLAR
@@ -192,15 +195,16 @@ public class Main {
 		System.out.println("/////////////");
 		System.out.println(pc2);*/
 		
-	//CAMBIO EN TIEMPO DE EJECIÓN COMPARADOR DE LA BATALLA
+	//CAMBIO EN TIEMPO DE EJECUCIÓN COMPARADOR DE LA BATALLA
 		Comparator<Equipo> lc = LaVozArgentina.getRequisitoBatalla();
 		LaVozArgentina.setRequisitoBatalla(new ComparadorInverso(lc));
 		
 	//LOS HAGO BATALLAR
-			///COMPARADOR CON EL CUAL SE DETERMINA COMO SE GANA LA BATALLA (COMPUESTO(INSTRUMENTO, EDADES))
 			System.out.println(LaVozArgentina.batallar(pc1, pc2));
 		
-		
+			
+			
+			
 ///////COMPORTAMIENTO DE COACHES////////
 			
 			//Para una mejor organización, cada coach/jurado desea poder obtener:
