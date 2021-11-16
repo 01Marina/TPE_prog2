@@ -8,7 +8,7 @@ public class Tema {
 	
 	private String titulo, idioma;
 	private ArrayList<String> generosMusicales;
-	protected ArrayList<String> instrumentosNecesarios; //puede ser null
+	protected ArrayList<String> instrumentosNecesarios;
 
 	public Tema(String titulo,String idioma){
 		this.titulo = titulo;

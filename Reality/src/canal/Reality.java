@@ -33,8 +33,8 @@ public class Reality {
 		this.temas.add(tema);
 	}
 	
-	public Equipo getParticipante(Coach_Jurado c,Criterio criterio) {
-		return c.participanteElejido(criterio);
+	public ArrayList<Equipo> getParticipante(Coach_Jurado c,Criterio criterio) {
+		return c.getParticipantesAptos(criterio);
 	}
 	
 	public void addCoach(Coach_Jurado coach){

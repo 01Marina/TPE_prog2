@@ -62,13 +62,11 @@ public class Participante extends Equipo{
 		}
 		return new ArrayList<>();
 	}
-	
 
 	@Override
 	public ArrayList<Equipo> getParticipantes(Criterio criterio){
 		return this.getEquipos(criterio);
 	}
-	
 	
 	@Override
 	public String toString() {

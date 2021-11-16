@@ -30,7 +30,7 @@ public class Main {
 		Criterio instr_guitarra = new CriterioInstrumento("Guitarra");
 		Criterio tema_despacito = new CriterioTema(despacito);
 		Criterio tema_do_i_wanna_know = new CriterioTema(do_i_wanna_know);
-		*/
+	*/
 
 		//PARTICIPANTES
 
@@ -155,11 +155,7 @@ public class Main {
 //			System.out.println(LaVozArgentina.batallar(batalladores_mayores_c1.get(0), batalladores_mayores_c1.get(1)));
 //		else System.out.println("No se encontro a mas de un equipo apto");
 //
-//
-//
 //		System.out.println(LaVozArgentina.batallar(batalladores_mayores_c1.get(0), batalladores_mayores_c2.get(0)));
-//
-//
 //
 //		System.out.println(g1);
 //		System.out.println(g1.getEdad());
@@ -183,8 +179,8 @@ public class Main {
 		CriterioGenero cg = new CriterioGenero("Rock");
 		
 		//encuentra dos posibles en c1 y c2 (coaches)
-		Equipo pc1 = LaVozArgentina.getParticipante(c1, cg);
-		Equipo pc2 = LaVozArgentina.getParticipante(c2, cg);
+		Equipo pc1 = LaVozArgentina.getParticipante(c1, cg).get(0);
+		Equipo pc2 = LaVozArgentina.getParticipante(c2, cg).get(0);
 		
 	//LOS HAGO BATALLAR
 		///COMPARADOR CON EL CUAL SE DETERMINA COMO SE GANA LA BATALLA (COMPUESTO(INSTRUMENTO, EDADES))
@@ -237,6 +233,6 @@ public class Main {
 				//LE AGREGO UN SOLISTA PARA REFLEJAR QUE LOS ORDENA
 				c1.addEquipo(p7);
 				//Gonzalo, Grupo Pitusas
-				System.out.println(c1.rankingEquipo(cI));
+				System.out.println(c1.rankingEquipo(cI, cg));//criterio por genero Rock
 	}
 }
