@@ -80,7 +80,8 @@ public class Grupo extends Equipo{
 		}
 		return instrumentos;
 	}
-	
+	//USADA POR EL REALITY
+	//getParticipante(coach, criterio);
 	@Override
 	public ArrayList<Equipo> getEquipos(Criterio criterio){
 		ArrayList<Equipo> participantesABatallar = new ArrayList<>();
@@ -94,7 +95,8 @@ public class Grupo extends Equipo{
 			}
 		return participantesABatallar;
 	}
-	
+	//USADA EN CASO QUE REQUIERA HACERLO LA CLASE TemaFinal
+	//aceptaInterprete(p);
 	@Override
 	public ArrayList<Equipo> getParticipantes(Criterio criterio){
 		ArrayList<Equipo> participantesABatallar = new ArrayList<>();

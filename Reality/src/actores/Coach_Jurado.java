@@ -72,22 +72,19 @@ public class Coach_Jurado{
 
 	//COSAS DE JURADO------------------------------------------
 	//elige 1 de los integrantes aptos a batallar
-	//PREGUNTAR
-	//esta función deberia recibir cuantos participantes son requeridos para el tema
 	public Equipo participanteElejido(Criterio criterio){
 		ArrayList<Equipo> participantes = getParticipantesAptos(criterio);
 		if(participantes.size()>0) 
 			return participantes.get(0);
 		else return null;
-	}//SE BORRA??
+	}
 
 	public ArrayList<Equipo> getParticipantesAptos(Criterio criterio){
 		ArrayList<Equipo> participantesABatallar = new ArrayList<>();
 		for(Equipo participante: this.equipo){
-			ArrayList<Equipo> elegidos = participante.getParticipantes(criterio);
+			ArrayList<Equipo> elegidos = participante.getEquipos(criterio);//.getParticipantes(Criterio);
 			participantesABatallar.addAll(elegidos);
 		}
-
 		return participantesABatallar;
 	}
 

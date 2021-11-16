@@ -23,14 +23,14 @@ public class Main {
 
 
 		//CRITERIOS
-
+	 /*	
 		Criterio mayor_18 = new CriterioEdad(18);
 		Criterio gen_rock = new CriterioGenero("Rock");
 		Criterio idioma_ingles = new CriterioIdioma("Ingles");
 		Criterio instr_guitarra = new CriterioInstrumento("Guitarra");
 		Criterio tema_despacito = new CriterioTema(despacito);
 		Criterio tema_do_i_wanna_know = new CriterioTema(do_i_wanna_know);
-
+		*/
 
 		//PARTICIPANTES
 
@@ -115,22 +115,13 @@ public class Main {
 
 		Coach_Jurado c1 = new Coach_Jurado();
 		Coach_Jurado c2 = new Coach_Jurado();
-		Coach_JuradoEstricto c3 = new Coach_JuradoEstricto(mayor_18);
-
-
-		//COMPARADORES
-
-		Comparator<Equipo> comp_edad = new ComparadorEdades();
-		Comparator<Equipo> comp_generos = new ComparadorGeneros();
-		Comparator<Equipo> comp_instr = new ComparadorInstrumentos();
-		Comparator<Equipo> comp_instr_edad = new ComparadorCompuesto(comp_instr, comp_edad);
-
-
-
+		Coach_JuradoEstricto c3 = new Coach_JuradoEstricto(new CriterioEdad(18));
 
 		//REALITY
+		///COMPARADOR CON EL CUAL SE DETERMINA COMO SE GANA LA BATALLA
+		Comparator<Equipo> compuesto = new ComparadorCompuesto(new ComparadorInstrumentos(), new ComparadorEdades());
 
-		Reality LaVozArgentina = new Reality(comp_instr_edad);
+		Reality LaVozArgentina = new Reality(compuesto);
 
 		//add coach, participantes, equipo y temas
 		LaVozArgentina.addCoach(c1);
@@ -141,7 +132,7 @@ public class Main {
 		LaVozArgentina.addParticipante(g2);
 		LaVozArgentina.addParticipante(p6);
 		LaVozArgentina.addParticipante(p7);
-
+		//AGREGA EQUIPOS/SOLISTAS A COACHES
 		c1.addEquipo(LaVozArgentina.getParticipantes().get(0));
 		c2.addEquipo(LaVozArgentina.getParticipantes().get(1));
 		c3.addEquipo(LaVozArgentina.getParticipantes().get(2));
@@ -156,8 +147,8 @@ public class Main {
 
 		/*la producción del programa le pide a cada jurado que seleccione
 		un participante de su equipo para cantar un determinado tema musical.*/ 
-		ArrayList<Equipo> batalladores_mayores_c1 = c1.getParticipantesAptos(mayor_18);
-		ArrayList<Equipo> batalladores_mayores_c2 = c2.getParticipantesAptos(mayor_18);
+		ArrayList<Equipo> batalladores_mayores_c1 = c1.getParticipantesAptos(new CriterioEdad(18));
+		ArrayList<Equipo> batalladores_mayores_c2 = c2.getParticipantesAptos(new CriterioEdad(18));
 
 //		//BATALLA ENTRE DOS EQUIPOS DE MISMO COACH
 //		if(batalladores_mayores_c1.size() > 1)
@@ -177,11 +168,71 @@ public class Main {
 		TemaFinal t1 = new TemaFinal("pp", "Ingles", 3);
 		t1.addGenero("Rock");
 		t1.addInstrumento("Guitarra");
-		System.out.println(t1.aceptaInterprete(g1));
-		System.out.println(g1.getParticipantes(new CriterioInstrumento("Guitarra")));
+		//System.out.println(t1.aceptaInterprete(g1));
+		//System.out.println(g1.getParticipantes(new CriterioInstrumento("Guitarra")));
 	
 	//los metodos overrided se ven reflejados cuando uso polimorfismo
-	
-	
+		
+////////COMPORTAMIENTO REALITY////////
+		
+	//BUSCO PARTICIPANTES PARA BATALLAR
+		//USO CRITERIO POR GENERO
+		CriterioGenero cg = new CriterioGenero("Rock");
+		
+		//encuentra dos posibles en c1 y c2 (coaches)
+		Equipo pc1 = LaVozArgentina.getParticipante(c1, cg);
+		Equipo pc2 = LaVozArgentina.getParticipante(c2, cg);
+		
+	//LOS HAGO BATALLAR
+		///COMPARADOR CON EL CUAL SE DETERMINA COMO SE GANA LA BATALLA (COMPUESTO(INSTRUMENTO, EDADES))
+		System.out.println(LaVozArgentina.batallar(pc1, pc2));
+		
+		//IMPRIMO EQUIPOS PARA CORROBORAR RESULTADO
+		/*System.out.println(pc1);
+		System.out.println("/////////////");
+		System.out.println(pc2);*/
+		
+	//CAMBIO EN TIEMPO DE EJECIÓN COMPARADOR DE LA BATALLA
+		Comparator<Equipo> lc = LaVozArgentina.getRequisitoBatalla();
+		LaVozArgentina.setRequisitoBatalla(new ComparadorInverso(lc));
+		
+	//LOS HAGO BATALLAR
+			///COMPARADOR CON EL CUAL SE DETERMINA COMO SE GANA LA BATALLA (COMPUESTO(INSTRUMENTO, EDADES))
+			System.out.println(LaVozArgentina.batallar(pc1, pc2));
+		
+		
+///////COMPORTAMIENTO DE COACHES////////
+			
+			//Para una mejor organización, cada coach/jurado desea poder obtener:
+			
+				/* Un listado de todos los instrumentos que pueden tocar los participantes de su equipo (no
+				debe haber repetidos)*/
+				System.out.println("Instrumentos:   "+c1.getInstrumentos());
+					
+				/* Un listado de todos los idiomas que pueden cantar los participantes de su equipo (sin idiomas
+				repetidos)*/
+				
+				System.out.println("Idiomas:   "+c1.getIdiomas());
+				
+				/* Un listado de géneros de preferencia de los participantes de su equipo (sin repetidos y
+				ordenados alfabéticamente)*/
+				System.out.println("Generos:   "+c1.getGenerosOrdenada());
+				
+				/* El promedio de edad de su equipo*/
+				System.out.println("Promedio de edades:   "+c1.promedioEdad());
+				
+				/*Como los jurados no quieren perder una desean poder contar con un mecanismo que les permita
+					dada la forma actual que se va a utilizar para determinar el ganador de una batalla, obtener un listado
+					de sus participantes ordenado de forma tal que los primeros miembros del listado sean los que les
+					ganen o empaten con los siguientes miembros (siempre dentro del mismo equipo del juez).
+				 */
+				System.out.println("////////////////////////77");
+				//System.out.println(c1.rankingEquipo(LaVozArgentina.getRequisitoBatalla()));
+				Comparator<Equipo> cE = new ComparadorEdades();
+				Comparator<Equipo> cI = new ComparadorInverso(cE);
+				//LE AGREGO UN SOLISTA PARA REFLEJAR QUE LOS ORDENA
+				c1.addEquipo(p7);
+				//Gonzalo, Grupo Pitusas
+				System.out.println(c1.rankingEquipo(cI));
 	}
 }
